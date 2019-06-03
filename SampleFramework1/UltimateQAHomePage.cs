@@ -1,7 +1,16 @@
-﻿namespace SampleFramework1
+﻿using OpenQA.Selenium;
+
+namespace SampleFramework1
 {
     internal class UltimateQAHomePage
     {
-        public bool IsVisible { get; internal set; }
+        private IWebDriver driver;
+
+        public UltimateQAHomePage(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
+
+        public bool IsVisible => driver.Title.Contains("Home - Ultimate QA");
     }
 }

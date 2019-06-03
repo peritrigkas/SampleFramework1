@@ -27,9 +27,11 @@ namespace SampleFramework1
             Driver.Navigate().GoToUrl("https://www.ultimateqa.com/sample-application-lifecycle-sprint-1/");
         }
 
-        internal UltimateQAHomePage FillOutFormAndSubmit(string v)
+        internal UltimateQAHomePage FillOutFormAndSubmit(string firstname)
         {
-            throw new NotImplementedException();
+            Driver.FindElement(By.Name("firstname")).SendKeys(firstname);
+            Driver.FindElement(By.XPath("//*[@type='submit']")).Submit();
+            return new UltimateQAHomePage(Driver);
         }
     }
 }
